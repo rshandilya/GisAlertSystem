@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<h1>Register</h1>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+    {{user_form.as_table}}
+    {{customer_form.as_table}}
+    </table>
+  <input type="submit" value="Submit form">
+  
+</form>
+
+
+{% endblock %}
