@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<html>
+        <head>
+                <title>Contact</title>
+                <style>
+                    label{
+                        font-size: 20px;
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+                    .input_fields{
+                        position: relative;
+                        float: right;
+                        padding: 3px;
+                        border-radius: 20px;
+                        box-shadow: 0 0 2px 0 blue;
+                    }
+                    div#outerbox{
+                        margin: auto;
+                        width: fit-content;
+                    }
+                    div#signup_block{
+                        background-color:rgba(148, 247, 242, 0.356);
+                        padding: 10px;
+                        max-width: fit-content;
+                        margin: auto;
+                        display: block;
+                        margin-bottom: 30px;
+                        border-top: solid 2px rgb(102, 92, 90);
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px 0 whitesmoke;
+                        text-shadow:yellowgreen;
+                        text-align: center;
+                    }
+                    .btns{
+                        position: relative;
+                        text-align: center;
+                        padding: 3px;
+                        font-size: 20px;
+                        font-family: Arial, Helvetica, sans-serif;
+                        border-radius: 30px;
+                        margin:auto;
+                        display: block;
+                        background-color: #4CAF50;
+                    }
+                    .address{
+                        height: auto;
+                    }
+                </style>
+                 <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+                 <!-- Bootstrap core CSS -->
+                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            </head>
+    <h3 align='center' style="font-family:Arial, Helvetica, sans-serif;"></h3>
+    <body>
+            <h5 align='center' style="margin:20px;">{{message}}</h4>
+        <div id="outerbox" style="background-color: rgba(220, 240, 237, 0.541);">
+
+            <div id="signup_block">
+                   
+                    <form action="{% url 'contact_goldenhour' %}" method="POST">
+                        {% csrf_token %}
+                        <h4>Subject:</h4>
+                        <input type="text" name="subject" class="form-control input_fields"> 
+                        <h4>Please Write Your Query Below:</h4>
+                        <div style="margin:auto;display:block; width:fit-content;">
+                    <textarea name="query"  cols="40" rows="10" class="form-control input_fields">            </textarea>
+                        </div>
+                    <br><br>
+                    <label align='center'>Your Email Id</label>
+                    <input type="Email" name="email" class="form-control input_fields">
+                    <br><br>
+                    <br>
+                    <input type="submit" name="submit" value="Send" class=" btns btn btn-lg btn-primary btn-block">
+                    </form>
+        
+
+            </div>
+        </div>
+    </body>    
+</html>
+{% endblock %}

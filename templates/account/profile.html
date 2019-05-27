@@ -1,7 +1,8 @@
-{% extends "base.html" %}
+{% extends "userloginbasefile.html" %}
 {% load staticfiles %}
 
 {% block css_content %}
+<title>Profile</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
@@ -9,13 +10,29 @@
    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
    crossorigin=""></script>
 <style>
-#mapid { height: 500px; }
+#mapid { 
+    height: 600px;
+    margin:5px;
+    width: 890px;
+    border-radius:20px; 
+}
+#mapouterbox{
+    border-top:solid 5px black; 
+    border-radius:20px;
+    box-shadow: 0 0 15px 0 aqua;
+    margin:auto;
+    width: 900px;
+}
 </style>
 {% endblock %}
 
 {% block content %}
-<h1>Profile Page </h1>
-<div id="mapid"></div>
+<h1 align='center'>Profile Page</h1>
+<div id="mapouterbox" >
+    <div id="mapid">
+
+    </div>
+</div>
 
 {% block js_content %}
 <script>

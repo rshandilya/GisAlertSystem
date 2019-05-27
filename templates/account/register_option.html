@@ -1,9 +1,78 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-
+{% extends 'base.html' %}
 {% block content %}
-<h3>Register as:</h3>
-<a href="">Customer</a>
-<a href="{% url 'account:register_police_station'%}">Police Station</a>
-<a href="">Hospital</a>
-{% endblock %}
+<html>
+    <head>
+        <title>Signup Page</title>
+        <style>
+            label{
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .input_fields{
+                position: relative;
+                float: right;
+                padding: 3px;
+                border-radius: 20px;
+                box-shadow: 0 0 2px 0 blue;
+            }
+            div#outerbox{
+                margin: auto;
+                width: fit-content;
+            }
+            div#signup_block{
+                background-color:rgba(148, 247, 242, 0.356);
+                padding: 10px;
+                max-width: fit-content;
+                width: 700px;
+                margin: 10px;
+                border-top: solid 2px rgb(102, 92, 90);
+                border-radius: 10px;
+                box-shadow: 0 0 10px 0 whitesmoke;
+                text-shadow:yellowgreen;
+            }
+            .btns{
+                position: relative;
+                text-align: center;
+                padding: 3px;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                border-radius: 30px;
+                margin:auto;
+                display: block;
+                background-color: #4CAF50;
+            }
+            .address{
+                height: auto;
+            }
+        </style>
+         <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+         <!-- Bootstrap core CSS -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <h3 align='center' style="font-size:25px; font-family: Arial, Helvetica, sans-serif; ">Signup</h3>
+        <h4 align='center' >{{ errormessage }}</h4>
+        <br>
+        <div id="outerbox" align='center'>
+        <div id="signup_block" align='left'>     
+            <form action="{% url 'account:loadTemplate' %}" method="POST">
+                    {% csrf_token %}
+                <label >Select Registration Type -</label>
+                <select name="registration_type" id="rtype"  class="form-control input_fields" style="width:300px;" >
+                    <option value="Hospital">Hospital</option>
+                    <option value="Police">Police Station</option>
+                    <option value="Ambulance">User</option>
+                </select>
+                <br>
+                <br>
+                <div>
+                <input type="submit" value='Next' style="width:150px;" class=" btns btn btn-lg btn-primary btn-block">
+                </div>
+            </div>
+            {% csrf_token %}
+
+            </form>
+        </div>
+    </body>
+</html>
+{%endblock%}

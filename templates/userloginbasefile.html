@@ -1,0 +1,29 @@
+{% load static %}
+<html>
+    <head>
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js"></script>
+      <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+      {% block css_content %}
+    
+      {% endblock %}
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen,projection" >
+    </head>
+
+    <body>
+        <h1 id="title", align='center' style=" border-radius:5px; width:fit-content; margin:auto; display:block;" >Golden Hour Rescue</h1>
+            <div class="topnav">
+              <a class="active" href="#"><i class="fa fa-home"></i> Profile</a>
+              <a href="#"><i class="fa fa-book"></i>Location</a>
+              <a href="#"><i class="fa fa-file"></i> Report</a>
+              <a href="{% url 'account:logout' %}"><i class="fa fa-sign-out-alt"></i>Log-Out</a>
+            </div>
+    {% block content %}
+
+    {% endblock %}
+    {% block js_content %}
+    
+    {% endblock %}
+    </body>
+</html>

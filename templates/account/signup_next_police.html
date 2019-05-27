@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html>
+    <head>
+        <title>Signup Page</title>
+        <link rel="stylesheet" href="{% static 'css\usersignup.css' %}">
+         <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+         <!-- Bootstrap core CSS -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <h3 align='center' style="font-size:25px; font-family: Arial, Helvetica, sans-serif; ">Police Station Registration</h3>
+        <h4 align='center' >{{ errormessage }}</h4>
+        <br>
+
+        <div id="outerbox" align='center'>
+            <div id="image">
+                <img src="{% static 'img\police.png' %}" alt="police_logo" width="80px" height="120px">
+            </div>
+        <div id="signup_block" align='left'  style="  background-color:rgba(219, 241, 219, 0.493);">     
+            <form action="#" method="POST">
+                    {% csrf_token %}
+                    
+                <br>
+                <label><i class="fa fa-id-card"></i> Address:</label>
+                <input type="text" name="Address" class="form-control input_fields" style="width:300px;" title="Please Enter Full Address With Pincode ,City ,District and State.">
+                <br>
+                <br>
+                <label><i class="fa fa-phone"></i> Phone Number:</label>
+                <input align='left' type="text" name="phone_number" class="form-control input_fields" style="width:300px;" title="Please Enter A Responsive Phone Number!">
+                <br>
+                <br>
+                <div>
+                <input type="submit" value='Register' style="width:150px;" class=" btns btn btn-lg btn-primary btn-block ">
+                </div>
+            </form>
+        </div>
+    </div>
+    </body>
+</html>
+{%endblock%}

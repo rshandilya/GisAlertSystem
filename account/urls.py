@@ -19,8 +19,9 @@ app_name = 'account'
 
 urlpatterns = [
     #path('', TemplateView.as_view(template_name='index.html')),
-    path('register/customer', 
-         views.signup,
-         name='register'),
-    path('profile/', views.profile, name='profile')
+    path('register/options', views.signupoptions,name='signupOptions'),
+    path('register/signup_user',views.signup,name='register'),
+    path('register/signup_choosen',views.loadTemplate,name='loadTemplate'),
+    path('profile/', views.profile, name='profile'),
+    path('logout',views.logout,name='logout')
 ]
