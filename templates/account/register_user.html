@@ -1,17 +1,29 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-
 {% block content %}
-<h1>Register</h1>
-<form method="POST">
-    {% csrf_token %}
-    <table>
-    {{user_form.as_table}}
-    {{customer_form.as_table}}
-    </table>
-  <input type="submit" value="Submit form">
-  
-</form>
+<html>
+  <head>
+    <title>Register As Costumer </title>
+    <link rel="stylesheet" href="{% static 'css\usersignup.css' %}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  </head>
+  <body>
+      <h3 align='center' style="margin:20px;">Costumer Registration</h3>
+  <form method="POST" action="{% url 'account:register' %}">
+      {% csrf_token %}
+      <div id="outerbox" align='center'>
+      <div id="signup_block" align='left' style="  background-color:rgba(219, 241, 219, 0.4);"> 
+      <table>
+      {{user_form.as_table}}
+      {{customer_form.as_table}}
+      </table>
+    <input type="submit" value="Submit form">
+  </form>
+
+  </body>
+</html>
 
 {% endblock %}

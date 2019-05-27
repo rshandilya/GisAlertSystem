@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html>
+    <head>
+        <title>Signup Page</title>
+        <link rel="stylesheet" href="{% static 'css\usersignup.css' %}">
+         <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+         <!-- Bootstrap core CSS -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <h3 align='center' style="font-size:25px; font-family: Arial, Helvetica, sans-serif; ">Hopital Registration</h3>
+        <h4 align='center' >{{ errormessage }}</h4>
+        <br>
+        <div id="outerbox" align='center'>
+            <div>
+                <img src="{% static 'img\hospital.png' %}" alt="hospital_logo" width="80px" height="120px">
+            </div>
+        <div id="signup_block" align='left' style="  background-color:rgba(219, 241, 219, 0.527);">     
+            <form action="#" method="POST">
+                    {% csrf_token %}
+                <br>
+                <label><i class="fa fa-id-card"></i> Address:</label>
+                <input type="text" name="address" class="form-control input_fields" style="width:300px;" title="Please Enter Full Address With Pincode ,City ,District and State.">
+                <br>
+                <br>
+                <label><i class="fa fa-phone"></i> Phone Number:</label>
+                <input align='left' type="text" name="phone_nummber" class="form-control input_fields" style="width:300px;" title="Please Enter A Responsive Phone Number!">
+                <br>
+                <br>
+                <div>
+                <input type="submit" value='Register' style="width:150px;" class=" btns btn btn-lg btn-primary btn-block ">
+                </div>
+            </div>
+            {% csrf_token %}
+            </form>
+        </div>
+    </body>
+</html>
+{%endblock%}

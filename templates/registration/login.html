@@ -1,40 +1,51 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+  {% block content %}
 
-{% block content %}
-
-{% if form.errors %}
-  <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
-  {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-  {% else %}
-    <p>Please login to see this page.</p>
-  {% endif %}
-{% endif %}
-
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-
-<tr>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</tr>
-
-<tr>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
-
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="">Lost password?</a></p>
-
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css\usersignup.css'%}">
+  </head>
+  <body>
+      {% if form.errors %}
+      <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    
+    {% if next %}
+      {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.</p>
+      {% else %}
+        <p>Please login to see this page.</p>
+      {% endif %}
+    {% endif %}
+    <h3 align='center'>Login</h3>
+    <div id="outerbox" align='center'>
+        <div>
+            <img src="{% static 'img\userlogin.png' %}" alt="hospital_logo" width="60px" height="90px">
+        </div>
+    <div id="signup_block" align='left' style="  background-color:rgba(219, 241, 219, 0.4);">  
+        <form method="post" action="{% url 'Login' %}">
+    <table>
+    <tr>
+      <td>{{ form.username.label_tag }}</td>
+      <td>{{ form.username }}</td>
+    </tr>
+    
+    <tr>
+      <td>{{ form.password.label_tag }}</td>
+      <td>{{ form.password }}</td>
+    </tr>
+    </table>
+    <input type="submit" value="login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% csrf_token %}  
+  </form>
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p align='center'><a href="">Lost password?</a></p>
+    </div>
+    </div>        
+  </body>
+</html>
 {% endblock %}

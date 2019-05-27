@@ -1,0 +1,12 @@
+1. No changes in Models
+2.No Changes in previous code
+3.Add images in statis folder
+4.registration_options.html modified
+5.register.html updated
+6. base.css and usersignup.css added
+7.views.py added to the SIH folder to control about.html template and contac_form.html template
+8.in ACCOUNT/VIEWS.py load_template function is added to load 
+   police registration,hospital registration and user registration for as per the 
+  chosen options from the "REGISTRAION_OPTION.HTML".
+9.PROFILE.HTML updated WITH userloginbasefile.html as parent TEMPLATE
+10. navigation menu added in the PROFILE.HTML
