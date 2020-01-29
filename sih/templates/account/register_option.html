@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h3>Register as:</h3>
+<a href="">Customer</a>
+<a href="{% url 'account:register_police_station'%}">Police Station</a>
+<a href="">Hospital</a>
+{% endblock %}

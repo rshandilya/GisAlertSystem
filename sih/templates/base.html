@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="screen,projection" >
+    <!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js"></script-->
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/axios.min.js' %}"></script>
+    {% block css_content %}{% endblock %}
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="{% url 'home' %}">HOME</a>
+        <ul class="navbar-nav">
+            
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'account:profile' %}">Profile</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'account:register'%}">Register</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'login'%}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+    {% block js_content %}{% endblock %}
+</body>
+</html>

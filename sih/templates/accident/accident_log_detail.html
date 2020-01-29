@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css_content %}
+{% endblock %}
+{% block content %}
+</br>
+<h1>Detail Information of Accident</h1>
+</br>
+<h3>Sensors Value Detail</h3>
+<p>
+<ul class="list-group list-group-flush">
+<li class="list-group-item">accleration_x : {{accident.acc_x}}</li>
+<li class="list-group-item">accleration_y : {{accident.acc_y}}</li>
+<li class="list-group-item">accleration_z : {{accident.acc_z}}</li>
+<li class="list-group-item">angle_x : {{accident.angle_x}}</li>
+<li class="list-group-item">angle_y : {{accident.angle_y}}</li>
+<li class="list-group-item">angle_z : {{accident.angle_z}}</li>
+<li class="list-group-item">ultrasonic sensor distance : {{accident.ultra_son_dist}}</li>
+<li class="list-group-item">accident type : {{accident.accident_type}}</li>
+</ul>
+</p>
+</br>
+<h3>Location Detail</h3>
+<p>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">Lattitude : {{accident.lat}}</li>
+    <li class="list-group-item">Longitude : {{accident.lon}}</li>
+    <li class="list-group-item">Location Area Code : {{accident.lac}}</li>
+    <li class="list-group-item">MCC : {{accident.mcc}} </li>
+    <li class="list-group-item">Cell id : {{accident.cell_id}}</li>
+</ul>
+</p>
+</br>
+<h3>Personal Detail</h3>
+<p>
+<ul class="list-group list-group-flush">
+<li class="list-group-item">Vehicle No : {{customer.vehicle_no}}</li>
+<li class="list-group-item">Phone : {{customer.phone}}</li>
+<li class="list-group-item">Realtive Phone No : {{customer.rel_phone}}</li>
+<li class="list-group-item">Address: {{customer.address}}</li>
+<li class="list-group-item">Blood Group : {{customer.blood_group}}</li>
+</ul>
+</p>
+{% endblock %}

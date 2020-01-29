@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br/>
+<div class="row">
+
+<div class="col-2"></div>
+<div class="col-8">
+
+<div class="card">
+    <div class="card-header" style="background-color: #E7DCA6">
+     <h4>Customer Registeration</h4>
+    </div>
+    <div class="card-body" style="background-color: #F7F9D6">
+<form method="POST">
+    {% csrf_token %}
+    <table>
+    {{user_form | crispy}}
+    {{customer_form |crispy}}
+    </table>
+  <input class="btn" style="background-color: #BF7F3F" type="submit" value="Submit form"> 
+</div>
+</div>
+</form>
+
+
+<div class="col-2"></div>
+</div>
+</div>
+
+
+{% endblock %}

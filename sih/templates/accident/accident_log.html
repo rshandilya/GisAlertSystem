@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css_content %}
+{% endblock %}
+{% block content %}
+</br>
+<h1>List of Accident Tracked</h1>
+</br>
+<table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Vehicle No</th>
+            <th scope="col">Time</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+{% for a in accident_list %} 
+          <tr>
+            <th scope="row">1</th>
+            <td><a href="{% url 'accident:log_detail' a.id %}">{{a.vehicle}}</a></td>
+            <td>{{a.occurrence}}</td>
+            <td>{{a.status}}</td>
+          </tr>
+{% endfor %}
+        </tbody>
+      </table>
+
+{% endblock %}
